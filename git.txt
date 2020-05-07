@@ -1,5 +1,10 @@
 git remote add origin https://github.com/Nick0751092/DataStructure.git
-git push -u origin master
+/* Get file */
+git pull --rebase
+
+
 git add --all
 git commit -m "first commit"
+
+/* Save file */
 git push -u origin master

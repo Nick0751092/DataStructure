@@ -182,9 +182,9 @@ insertnode(head[row-1],head[RNum+column-1],RNum,CNum,row,column,value);
 	}
 
 
-	/* Print inverse sparse array (by column vector) */
+	/* Print transpose sparse array (by column vector) */
 	printf("==============================\n");
-	printf("Transpose of Sparse Matrix:\n");
+	printf("Transpose Sparse Matrix:\n");
 	for (i=RNum;i<RNum+CNum;i++){
 		printf("[ ");
 		for (j=0;j<RNum;j++){

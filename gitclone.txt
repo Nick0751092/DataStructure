@@ -11,8 +11,5 @@ git commit -m "first commit"
 /* push to master */
 git push origin master
 
-/* merge to lab */
-git merge lab
-
 /* Switch branch to lab */
 git checkout lab

@@ -1,9 +1,15 @@
-/* clone to git branch lab */
- git clone -b lab https://github.com/Nick0751092/DataStructure.git
+/* clone to git */
+ git clone https://github.com/Nick0751092/DataStructure.git
 
 /* Add file */
 git add --all
 git commit -m "first commit"
 
-/* push to Lab */
-git push origin Lab
+/* push to master */
+git push origin master
+
+/* merge to master */
+git merge lab
+
+/* Switch server to lab */
+git checkout lab

@@ -1,6 +1,9 @@
 /* clone to git */
  git clone https://github.com/Nick0751092/DataStructure.git
 
+/* Check branch */
+git branch -a
+
 /* Add file */
 git add --all
 git commit -m "first commit"
@@ -8,8 +11,8 @@ git commit -m "first commit"
 /* push to master */
 git push origin master
 
-/* merge to master */
+/* merge to lab */
 git merge lab
 
-/* Switch server to lab */
+/* Switch branch to lab */
 git checkout lab

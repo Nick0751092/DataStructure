@@ -61,8 +61,7 @@ int main(){
 		/* pop data */
 		if (select == 0){
 			popData=pop();
-			if (top>=-1 && popData!=-1)
-				printf("Pop data:%d\n",popData);
+			printf("Pop data:%d\n",popData);
 		}
 		/* push data */
 		else if (select == 1){

@@ -1,85 +1,67 @@
 #include <stdlib.h>
 #include <stdio.h>
+#define MAXSTACK 8
 
-struct Stack{
-	int data;
-	struct Stack *down;
-};
-
-typedef struct Stack node;
-typedef node *link;
-
-link top=NULL;
+int top=-1;
+int stack[MAXSTACK];
 
 /* Check stack is empty or not */
 int isempty(){
-
-	/* Stack is empty */	
-	if (top==NULL)
+	if (top==-1)
 		return 1;
-	/* Stack is not empty */
 	else
 		return 0;
-
 }
 
 
 /* Pop data from stack */
 int pop(){
 
-	int popData;
-	link tmp;
-
+	/* Stack is empty */
 	if (isempty()==1){
-			printf("Stack is empty.\n");
-			return -1;
-		}
-	else{
-			tmp=top;
-			top=top->down;
-			popData=tmp->data;
-			free(tmp);
-			return popData;
-		}
+		printf("Stack is empty.\n");
+		return -1;
+	}
+	else
+		return stack[top--];
 
 }
 
 
 /* Push data to stack */
-void push(int pushData){
+int push(int pushData){
 
-	link new;
-	/* Memory allocation */
-	new=(link)malloc(sizeof(node));
-	/* Save data */
-	new->data=pushData;
-	new->down=top;
-	/* Link node */
-	top=new;
+	/* Stack is full */
+	if (top == MAXSTACK-1){
+		printf("Stack is full.\n");
+		return -1;
+	}
+	else{
+		top=top+1;
+		stack[top]=pushData;
+		return stack[top];
+	}
 
 }
 
 
-
-
 int main(){
 
-	link ptr,tmp;
 	int select;
 	int popData,pushData;
+	int k;
 
 	do{
 		printf("Select action(0:pop 1:push 2:leave):");
 		scanf("%d",&select);
 	}while(select < 0 || select > 2);
-	
 
 	while(select != 2){
 
 		/* pop data */
 		if (select == 0){
 			popData=pop();
-			if (popData != -1)
+			if (top>=-1 && popData!=-1)
 				printf("Pop data:%d\n",popData);
 		}
 		/* push data */
@@ -89,11 +71,11 @@ int main(){
 			push(pushData);
 		}
 		
-		/* Print stack */
-		ptr=top;		
-		while(ptr!=NULL){
-			printf("[ %d ]\n",ptr->data);
-			ptr=ptr->down;
+		/* Print stack */	
+		k=top;
+		while(k>=0){
+			printf("[ %d ]\n",stack[k]);
+			k=k-1;
 		}
 
 		printf("========================\n");
@@ -106,14 +88,6 @@ int main(){
 
 	}
 
-
-	/* Free memory */
-	ptr=top;
-	while(ptr!=NULL){
-		tmp=ptr;
-		ptr=ptr->down;
-		free(tmp);
-	}
 
 	return 0;
 }
